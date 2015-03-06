@@ -2,13 +2,13 @@ doctype
 html
 head
   meta(charset="UTF-8")
-  link(rel="stylesheet", href="/css/toDo.css")
+  link(rel="stylesheet", href="/styles/styles.css")
   title To Do
 body
   //- h1 To Do
   div.all
     section.form_container
-      form(action ="/toDo", method = "POST" )
+      form(action ="/blog", method = "POST" )
         //- (action="/toDo", method="POST")
         fieldset
           div.title_container
@@ -32,43 +32,22 @@ body
             div.description_container
               //- label Notes:
               textarea( type = "text", name = "description", placeholder = "Notes" cols='20' rows='5')
+              
               button.update(type="submit") Update
     section.toDoList_container
       ul
-        each item in todos
+        each item in blogs
           li.item
-            a(href='/toDo/#{item._id}')
+            a(href='/blog/#{item._id}')
               //- (href="#")
             input.check(type="checkbox", name = "toDos", checked = false, data-todo-id="#{item._id}")
             span.toDoItem!= item.title
             span :
             span &nbsp;
             span.notes!= item.description
-            form(action="/toDo/#{item._id}?_method=DELETE", method="post")
+            form(action="/blog/#{item._id}?_method=DELETE", method="post")
               button.delete(type="submit") X
-                  section.form_container
-            form.updating(action ="/toDo/#{item._id}?_method=put", method = "POST" )
-              fieldset
-                div.update_hide
-                  div.update_title_container
-                    //- label Update: 
-                    input( type = "text", name = "title", placeholder = "Update to-do", size='0')
-                    button.update(type="submit") Update
-                    div.update_eventDate_container
-                      //- lable Event Date: 
-                      input( type = "date", name = "eventDate")
-                    div.update_alert_container
-                      //- label Alert(s):
-                      input( type ="number", placeholder="0", min="0", cols = "2")
-                      span
-                      select
-                        option( value="no_alert") No alerts
-                        option(value="days_before") day(s) before
-                        option(value="hours_before") hour(s) before
-                    div.update_status
-                      input( type="hidden" name="is_done" value=false)
-                    div.update_description_container
-                      textarea( type = "text", name = "description", placeholder = "Notes" cols='20' rows='5')
+
         
 script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
-script(src="/js/toDo.js")
+script(src="/js/blog.js")

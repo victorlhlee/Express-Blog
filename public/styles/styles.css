@@ -1,0 +1,10 @@
+.background{
+  background-image: url(../assets/symphony.png);
+  background-size: 40%;
+  height: 600px;
+
+}
+
+.list{
+  background-color: yellow;
+}

@@ -1,53 +1,37 @@
 doctype
-html
+html(lang="en")
 head
+  script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
+  script(type="text/javascript" src="js/blog.js")
+  link(rel="stylesheet", href="styles/_reset.css")
+  link(rel="stylesheet", href="styles/styles.css")
   meta(charset="UTF-8")
-  link(rel="stylesheet", href="/styles/styles.css")
   title To Do
 body
-  //- h1 To Do
-  div.all
-    section.form_container
-      form(action ="/blog", method = "POST" )
-        //- (action="/toDo", method="POST")
-        fieldset
-          div.title_container
-            label.main To-Do: 
-            input( type = "text", name = "title", placeholder = "New to-do", size='0')
-            button.send +
-          div.hide
-            div.eventDate_container
-              //- lable Date: 
-              input( type = "date", name = "eventDate")
-            div.alert_container
-              //- label Alert(s):
-              input( type ="number", placeholder="0", min="0", cols = "2")
-              span
-              select
-                option( value="no_alert") No alerts
-                option(value="days_before") day(s) before
-                option(value="hours_before") hour(s) before
-            div.status
-              input( type="hidden" name="is_done" value=false)
-            div.description_container
-              //- label Notes:
-              textarea( type = "text", name = "description", placeholder = "Notes" cols='20' rows='5')
-              
-              button.update(type="submit") Update
-    section.toDoList_container
-      ul
-        each item in blogs
-          li.item
+  div.background
+    div.logowrapper
+      div.logo Horray
+    ul
+      each item in blogs
+        div.picturewrapper
+          img(src='http://cdn.c.photoshelter.com/img-get/I0000iAuAcJVVu34/s/750/chinatown-san-francisco-17-casanf77640.jpg')
+        li
+          div.list
             a(href='/blog/#{item._id}')
-              //- (href="#")
-            input.check(type="checkbox", name = "toDos", checked = false, data-todo-id="#{item._id}")
-            span.toDoItem!= item.title
-            span :
-            span &nbsp;
-            span.notes!= item.description
-            form(action="/blog/#{item._id}?_method=DELETE", method="post")
-              button.delete(type="submit") X
+              div.date 
+                p.date= item.date
+              div.title
+                p.title= item.title
+              div.author
+                p.author= item.author
+              div.body
+                p.body= item.body    
+          a(class="button", href='/fullblog') Read More      
 
         
-script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
-script(src="/js/blog.js")
+      
+
+
+   
+
+             

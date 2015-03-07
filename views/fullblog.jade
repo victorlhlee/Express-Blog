@@ -1,0 +1,28 @@
+doctype
+html(lang="en")
+head
+  script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
+  script(type="text/javascript" src="js/blog.js")
+  link(rel="stylesheet", href="styles/_reset.css")
+  link(rel="stylesheet", href="styles/styles.css")
+  meta(charset="UTF-8")
+body
+  div.background
+    div.logowrapper
+      div.logo Horray
+        div.picturewrapper
+          img(src='http://cdn.c.photoshelter.com/img-get/I0000iAuAcJVVu34/s/750/chinatown-san-francisco-17-casanf77640.jpg')
+    section.form_container  
+      form( action ="/blog/#{blogs._id}?_method=PUT", method = "POST")
+        fieldset
+          div.date
+            input.date(type = "text", name = "date", placehoder ="date", value= blogs.date)
+          div.title
+            input.title(type = "text", name = "title", placehoder ="title", value=blogs.title)
+          div.author
+            input.author(type = "text", name = "author", placehoder ="author", value=blogs.author)
+          div.body
+            input.body(type = "text", name = "body", placehoder ="body", value= blogs.body)
+          button(type="submit") Save    
+      
+
